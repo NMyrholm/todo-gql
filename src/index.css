@@ -1,0 +1,179 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+.App-header {
+  margin-top: 18px;
+  box-sizing: border-box;
+  line-height: 28px;
+  position: static;
+  text-align: center;
+}
+
+h1 {
+  font-family: "Muli", sans-serif;
+  font-size: 42px;
+  color: white;
+}
+
+.page {
+  position: fixed;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  background-color: rgba(12, 12, 12, 1);
+  overflow: scroll;
+}
+
+.todo {
+  position: relative;
+  margin: auto;
+  width: 25%;
+  min-width: 400px;
+  min-height: 60%;
+  padding: 30px;
+  background-color: #272727;
+  border-radius: 25px;
+}
+
+.new-todo {
+  position: relative;
+  margin: 0;
+  width: 100%;
+  font-size: 28px;
+  font-family: inherit;
+  font-weight: inherit;
+  line-height: 1.4em;
+  color: inherit;
+  padding: 6px;
+  border: 1px solid #999;
+  box-shadow: inset 0 -1px 5px 0 rgba(0, 0, 0, 0.2);
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.new-todo {
+  padding: 16px 16px 16px 60px;
+  border: 4px;
+  background: rgba(143, 143, 143, 0.288);
+  box-shadow: inset 0 -2px 1px rgba(0, 0, 0, 0.03);
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+ul li {
+  cursor: pointer;
+  position: relative;
+  padding: 12px 8px 12px 40px;
+  background: #eee;
+  font-size: 18px;
+  transition: 0.2s;
+  list-style-type: none;
+
+  /* make the list items unselectable */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Set all odd list items to a different color (zebra-stripes) */
+ul li:nth-child(odd) {
+  background: #f9f9f9;
+}
+
+ul li:nth-child(1) {
+  border-radius: 15px 15px 0px 0px;
+}
+
+ul li:nth-last-child(1) {
+  border-radius: 0px 0px 15px 15px;
+}
+
+/* Darker background-color on hover */
+ul li:hover {
+  background: #ddd;
+}
+
+/* When clicked on, add a background color and strike out text */
+
+.todo-completed {
+  background: rgba(17, 65, 10, 0.685);
+
+  text-decoration: line-through;
+}
+
+.addButton {
+  display: inline-block;
+  margin-bottom: 15px;
+  padding: 0.75rem 1rem;
+  border: solid;
+  width: 50%;
+  border-color: rgb(4, 43, 10);
+  border-radius: 2px;
+  background-color: #aaa;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 1.5;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  cursor: pointer;
+  -webkit-appearance: none;
+  -webkit-font-smoothing: antialiased;
+}
+
+.addButton:hover {
+  opacity: 0.85;
+}
+
+.deleteButton {
+  position: absolute;
+  right: 15px;
+  top: 6px;
+  padding: 0.75rem 1rem;
+  border: solid;
+  width: 15%;
+  height: 30%;
+  border-color: rgb(151, 10, 10);
+  border-radius: 2px;
+  background-color: rgb(41, 0, 0);
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 10;
+  line-height: 0;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  cursor: pointer;
+  -webkit-appearance: none;
+  -webkit-font-smoothing: antialiased;
+}
+
+.deleteButton:hover {
+  opacity: 0.85;
+}
+.icon {
+  background: url(http://getdrawings.com/free-icon/delete-icon-png-60.png)
+    no-repeat;
+  width: 10px;
+  height: 40px;
+}
+
+.todo-list {
+  position: relative;
+}
