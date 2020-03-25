@@ -109,7 +109,12 @@ function AddTodo() {
     <div>
       {error ? <p>Oh no! {error.message}</p> : null}
       {data && data.newTodo ? <p>Created!</p> : null}
-      <form>
+      <form
+        onSubmit={event => {
+          event.preventDefault();
+          newTodo({ variables: { text } });
+        }}
+      >
         <p>
           <input
             className="new-todo"
@@ -120,11 +125,7 @@ function AddTodo() {
           />
         </p>
       </form>
-      <button
-        className="addButton"
-        type="button"
-        onClick={() => newTodo({ variables: { text } })}
-      >
+      <button className="addButton" type="submit">
         Add
       </button>
     </div>
