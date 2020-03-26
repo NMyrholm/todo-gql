@@ -1,14 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, Component } from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import * as serviceWorker from "./serviceWorker";
 import { ApolloProvider } from "@apollo/react-hooks";
 import ApolloClient, { gql } from "apollo-boost";
 import { useQuery, useMutation } from "@apollo/react-hooks";
+import $ from "jquery";
 
 type Todo = { id: number; text: string; completed: boolean };
-type NewTodo = { id: number; text: string };
-type New2do = { text: string };
 
 const client = new ApolloClient({
   uri: "https://bez-to-do-list.herokuapp.com/v1/graphql"
@@ -105,27 +104,43 @@ function AddTodo() {
     refetchQueries: ["getTodo"]
   });
 
+  const resetTodo = () => {
+    (document.getElementById("todo-form") as HTMLFormElement).reset();
+    setText("");
+  };
+
   return (
     <div>
       {error ? <p>Oh no! {error.message}</p> : null}
       {data && data.newTodo ? <p>Created!</p> : null}
       <form
+        id="todo-form"
         onSubmit={event => {
           event.preventDefault();
           newTodo({ variables: { text } });
+          resetTodo();
         }}
       >
         <p>
           <input
+            defaultValue=""
             className="new-todo"
-            name="text"
+            type="text"
+            name="todoText"
             placeholder="What needs to be done?"
             onChange={e => setText(e.target.value)}
             autoFocus={true}
           />
         </p>
       </form>
-      <button className="addButton" type="submit">
+      <button
+        className="addButton"
+        type="submit"
+        onClick={() => {
+          newTodo({ variables: { text } });
+          resetTodo();
+        }}
+      >
         Add
       </button>
     </div>

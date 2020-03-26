@@ -44,7 +44,7 @@ h1 {
   min-height: 60%;
   padding: 30px;
   background-color: #272727;
-  border-radius: 25px;
+  border-radius: 5px;
 }
 
 .new-todo {
@@ -98,11 +98,11 @@ ul li:nth-child(odd) {
 }
 
 ul li:nth-child(1) {
-  border-radius: 15px 15px 0px 0px;
+  border-radius: 5px 5px 0px 0px;
 }
 
 ul li:nth-last-child(1) {
-  border-radius: 0px 0px 15px 15px;
+  border-radius: 0px 0px 5px 5px;
 }
 
 /* Darker background-color on hover */
@@ -123,7 +123,7 @@ ul li:hover {
   margin-bottom: 15px;
   padding: 0.75rem 1rem;
   border: solid;
-  width: 50%;
+  width: 100%;
   border-color: rgb(4, 43, 10);
   border-radius: 2px;
   background-color: #aaa;
