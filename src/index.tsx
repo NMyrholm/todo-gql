@@ -5,7 +5,6 @@ import * as serviceWorker from "./serviceWorker";
 import { ApolloProvider } from "@apollo/react-hooks";
 import ApolloClient, { gql } from "apollo-boost";
 import { useQuery, useMutation } from "@apollo/react-hooks";
-import $ from "jquery";
 
 type Todo = { id: number; text: string; completed: boolean };
 
@@ -104,27 +103,21 @@ function AddTodo() {
     refetchQueries: ["getTodo"]
   });
 
-  const resetTodo = () => {
-    (document.getElementById("todo-form") as HTMLFormElement).reset();
-    setText("");
-  };
-
   return (
     <div>
       {error ? <p>Oh no! {error.message}</p> : null}
       {data && data.newTodo ? <p>Created!</p> : null}
       <form
-        id="todo-form"
         onSubmit={event => {
           event.preventDefault();
           newTodo({ variables: { text } });
-          resetTodo();
+          setText("");
         }}
       >
         <p>
           <input
-            defaultValue=""
             className="new-todo"
+            value={text}
             type="text"
             name="todoText"
             placeholder="What needs to be done?"
