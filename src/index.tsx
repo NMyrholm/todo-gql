@@ -132,17 +132,8 @@ function AddTodo() {
             autoFocus={true}
           />
         </p>
+        <input type="submit" className="addButton" value="Add" />
       </form>
-      <button
-        className="addButton"
-        type="submit"
-        onClick={() => {
-          newTodo({ variables: { text } });
-          resetTodo();
-        }}
-      >
-        Add
-      </button>
     </div>
   );
 }
